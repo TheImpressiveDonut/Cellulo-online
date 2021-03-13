@@ -21,5 +21,29 @@
         <div class="title">Cellulo-Online</div>
       </div>
     </div>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+
+      <!-- Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+      <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-storage.js"></script>
+
+      <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyAxvuzK98gKdtNwbkyA0GHC9VnETRCL__g",
+        authDomain: "cellulo-online-game-id.firebaseapp.com",
+        databaseURL: "https://cellulo-online-game-id-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "cellulo-online-game-id",
+        storageBucket: "cellulo-online-game-id.appspot.com",
+        messagingSenderId: "736722534257",
+        appId: "1:736722534257:web:c268b3c135636b986d40d0",
+        measurementId: "G-7TJQ2HG9W7"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
   </body>
 </html>
