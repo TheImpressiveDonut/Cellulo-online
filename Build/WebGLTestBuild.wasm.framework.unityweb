@@ -1299,7 +1299,7 @@ function _emscripten_asm_const_ii(code, a0) {
  return ASM_CONSTS[code](a0);
 }
 STATIC_BASE = GLOBAL_BASE;
-STATICTOP = STATIC_BASE + 3609504;
+STATICTOP = STATIC_BASE + 3609776;
 __ATINIT__.push({
  func: (function() {
   __GLOBAL__sub_I_AccessibilityScriptingClasses_cpp();
@@ -3150,10 +3150,6 @@ __ATINIT__.push({
  })
 }, {
  func: (function() {
-  __GLOBAL__sub_I_Il2CppCodeRegistration_cpp();
- })
-}, {
- func: (function() {
   __GLOBAL__sub_I_Lump_libil2cpp_vm_cpp();
  })
 }, {
@@ -3170,10 +3166,14 @@ __ATINIT__.push({
  })
 }, {
  func: (function() {
+  __GLOBAL__sub_I_Il2CppCodeRegistration_cpp();
+ })
+}, {
+ func: (function() {
   ___emscripten_environ_constructor();
  })
 });
-var STATIC_BUMP = 3609504;
+var STATIC_BUMP = 3609776;
 Module["STATIC_BASE"] = STATIC_BASE;
 Module["STATIC_BUMP"] = STATIC_BUMP;
 var tempDoublePtr = STATICTOP;
@@ -3666,6 +3666,10 @@ function _SocketState(socketInstance) {
  return socket.socket.readyState;
 }
 function _Test() {
+ var storage = firebase.storage();
+ var storageRef = storage.ref();
+ var imagesRef = storageRef.child("images");
+ var spaceRef = storageRef.child("images/space.jpg");
  console.log("Ttest");
 }
 function ___atomic_fetch_add_8(ptr, vall, valh, memmodel) {
@@ -14431,6 +14435,15 @@ function _utime(path, times) {
   return -1;
  }
 }
+function _writeTestFile() {
+ var storage = firebase.storage();
+ var storageRef = storage.ref();
+ var imagesRef = storageRef.child("images");
+ var spaceRef = storageRef.child("images/space.txt");
+ var myBlob = new File([ "test string" ], "test.txt", {
+  type: "text/plain"
+ });
+}
 FS.staticInit();
 __ATINIT__.unshift((function() {
  if (!Module["noFSInit"] && !FS.init.initialized) FS.init();
@@ -19552,6 +19565,7 @@ Module.asmLibraryArg = {
  "_tzset": _tzset,
  "_unsetenv": _unsetenv,
  "_utime": _utime,
+ "_writeTestFile": _writeTestFile,
  "emscriptenWebGLComputeImageSize": emscriptenWebGLComputeImageSize,
  "emscriptenWebGLGet": emscriptenWebGLGet,
  "emscriptenWebGLGetBufferBinding": emscriptenWebGLGetBufferBinding,
