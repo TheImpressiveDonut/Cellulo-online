@@ -14441,7 +14441,7 @@ function _writeTestFile(data) {
  var imagesRef = storageRef.child("images");
  var spaceRef = storageRef.child("images/test.txt");
  console.log("Create file");
- var myBlob = new File([ data ], "test.txt", {
+ var myBlob = new File([ Pointer_stringify(data) ], "test.txt", {
   type: "text/plain"
  });
  spaceRef.put(myBlob);
