@@ -3150,6 +3150,10 @@ __ATINIT__.push({
  })
 }, {
  func: (function() {
+  __GLOBAL__sub_I_Il2CppCodeRegistration_cpp();
+ })
+}, {
+ func: (function() {
   __GLOBAL__sub_I_Lump_libil2cpp_vm_cpp();
  })
 }, {
@@ -3163,10 +3167,6 @@ __ATINIT__.push({
 }, {
  func: (function() {
   __GLOBAL__sub_I_Lump_libil2cpp_gc_cpp();
- })
-}, {
- func: (function() {
-  __GLOBAL__sub_I_Il2CppCodeRegistration_cpp();
  })
 }, {
  func: (function() {
@@ -14439,10 +14439,12 @@ function _writeTestFile() {
  var storage = firebase.storage();
  var storageRef = storage.ref();
  var imagesRef = storageRef.child("images");
- var spaceRef = storageRef.child("images/space.txt");
+ var spaceRef = storageRef.child("images/test.txt");
+ console.log("Create file");
  var myBlob = new File([ "test string" ], "test.txt", {
   type: "text/plain"
  });
+ spaceRef.put(myBlob);
 }
 FS.staticInit();
 __ATINIT__.unshift((function() {
