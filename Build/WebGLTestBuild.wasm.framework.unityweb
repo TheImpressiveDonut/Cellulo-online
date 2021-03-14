@@ -1299,7 +1299,7 @@ function _emscripten_asm_const_ii(code, a0) {
  return ASM_CONSTS[code](a0);
 }
 STATIC_BASE = GLOBAL_BASE;
-STATICTOP = STATIC_BASE + 3609792;
+STATICTOP = STATIC_BASE + 3609904;
 __ATINIT__.push({
  func: (function() {
   __GLOBAL__sub_I_AccessibilityScriptingClasses_cpp();
@@ -3150,10 +3150,6 @@ __ATINIT__.push({
  })
 }, {
  func: (function() {
-  __GLOBAL__sub_I_Il2CppCodeRegistration_cpp();
- })
-}, {
- func: (function() {
   __GLOBAL__sub_I_Lump_libil2cpp_vm_cpp();
  })
 }, {
@@ -3170,10 +3166,14 @@ __ATINIT__.push({
  })
 }, {
  func: (function() {
+  __GLOBAL__sub_I_Il2CppCodeRegistration_cpp();
+ })
+}, {
+ func: (function() {
   ___emscripten_environ_constructor();
  })
 });
-var STATIC_BUMP = 3609792;
+var STATIC_BUMP = 3609904;
 Module["STATIC_BASE"] = STATIC_BASE;
 Module["STATIC_BUMP"] = STATIC_BUMP;
 var tempDoublePtr = STATICTOP;
@@ -3664,13 +3664,6 @@ function _SocketSend(socketInstance, ptr, length) {
 function _SocketState(socketInstance) {
  var socket = webSocketInstances[socketInstance];
  return socket.socket.readyState;
-}
-function _Test() {
- var storage = firebase.storage();
- var storageRef = storage.ref();
- var imagesRef = storageRef.child("images");
- var spaceRef = storageRef.child("images/space.jpg");
- console.log("Ttest");
 }
 function ___atomic_fetch_add_8(ptr, vall, valh, memmodel) {
  var l = HEAP32[ptr >> 2];
@@ -14435,16 +14428,14 @@ function _utime(path, times) {
   return -1;
  }
 }
-function _writeTestFile(data) {
+function _writeFile(folder, file, data) {
  var storage = firebase.storage();
  var storageRef = storage.ref();
- var imagesRef = storageRef.child("images");
- var spaceRef = storageRef.child("images/test.txt");
- console.log("Create file");
- var myBlob = new File([ Pointer_stringify(data) ], "test.txt", {
+ var spaceRef = storageRef.child(Pointer_stringify(folder).concat("/", Pointer_stringify(file)));
+ var myFile = new File([ Pointer_stringify(data) ], Pointer_stringify(file), {
   type: "text/plain"
  });
- spaceRef.put(myBlob);
+ spaceRef.put(myFile);
 }
 FS.staticInit();
 __ATINIT__.unshift((function() {
@@ -19207,7 +19198,6 @@ Module.asmLibraryArg = {
  "_SocketRecvLength": _SocketRecvLength,
  "_SocketSend": _SocketSend,
  "_SocketState": _SocketState,
- "_Test": _Test,
  "__ZSt18uncaught_exceptionv": __ZSt18uncaught_exceptionv,
  "___atomic_fetch_add_8": ___atomic_fetch_add_8,
  "___buildEnvironment": ___buildEnvironment,
@@ -19567,7 +19557,7 @@ Module.asmLibraryArg = {
  "_tzset": _tzset,
  "_unsetenv": _unsetenv,
  "_utime": _utime,
- "_writeTestFile": _writeTestFile,
+ "_writeFile": _writeFile,
  "emscriptenWebGLComputeImageSize": emscriptenWebGLComputeImageSize,
  "emscriptenWebGLGet": emscriptenWebGLGet,
  "emscriptenWebGLGetBufferBinding": emscriptenWebGLGetBufferBinding,
