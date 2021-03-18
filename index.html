@@ -11,6 +11,11 @@
     <script>
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebGLTestBuild.json", {onProgress: UnityProgress});
     </script>
+    <script>
+      window.onunload = function() {
+        unityInstance.SendMessage("FollowMouseMouvement", "OnClose");
+      }
+    </script>
   </head>
   <body>
     <div class="webgl-content">
