@@ -12,7 +12,7 @@
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebGLTestBuild.json", {onProgress: UnityProgress});
     </script>
   </head>
-  <body onunload="callBackClose()">
+  <body>
     <div class="webgl-content">
       <div id="unityContainer" style="width: 1024px; height: 768px"></div>
       <div class="footer">
@@ -45,9 +45,11 @@
       firebase.initializeApp(firebaseConfig);
       </script>
 	    <script>
-        function callBackClose() {
+        window.addEventListener('unload', function(event) {
+          console.log("Exit");
           unityInstance.SendMessage("FollowMouseMouvement", "OnClose");
-        }
+          alert("Test");
+        });
       </script>
   </body>
 </html>
