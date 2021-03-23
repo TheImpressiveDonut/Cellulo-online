@@ -46,9 +46,8 @@
       </script>
       <script>
         window.addEventListener('unload', function(event) {
-          console.log("Exit");
+          console.log("Exit windows");
           unityInstance.SendMessage("Cellulo(Clone)", "OnClose");
-          alert("Test");
         });
       </script>
   </body>
