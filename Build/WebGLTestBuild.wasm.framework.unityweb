@@ -14430,6 +14430,7 @@ function _utime(path, times) {
 }
 function _writeFile(folder, file, data) {
  console.log("Write file to firebase");
+ console.log(Pointer_stringify(folder).concat("/", Pointer_stringify(file)));
  var storage = firebase.storage();
  var storageRef = storage.ref();
  var spaceRef = storageRef.child(Pointer_stringify(folder).concat("/", Pointer_stringify(file)));
