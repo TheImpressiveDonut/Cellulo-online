@@ -14437,7 +14437,11 @@ function _writeFile(folder, file, data) {
  var myFile = new File([ Pointer_stringify(data) ], Pointer_stringify(file), {
   type: "text/plain"
  });
- spaceRef.put(myFile);
+ try {
+  spaceRef.put(myFile);
+ } catch (error) {
+  console.error(error);
+ }
 }
 FS.staticInit();
 __ATINIT__.unshift((function() {
