@@ -48,6 +48,9 @@
         window.addEventListener('beforeunload', function(event) {
           console.log("Exit windows");
           unityInstance.SendMessage("Cellulo(Clone)", "OnClose");
+	  unityInstance.SendMessage("BoxSquare(Clone)", "OnClose");
+	  unityInstance.SendMessage("BoxTriangle(Clone)", "OnClose");
+	  unityInstance.SendMessage("BoxHexagone(Clone)", "OnClose");
         });
       </script>
   </body>
